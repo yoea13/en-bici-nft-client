@@ -112,7 +112,7 @@ function App() {
             Get your NFT Membership
           </Heading>
           <a href="http://youtube.com/@en-bici" target="blanc_">
-            <img src={"./public/youtube.png"} width={100} />
+            <img src={"/youtube.png"} width={100} />
           </a>
           @en-bici
           <Text> </Text>
@@ -132,7 +132,7 @@ function App() {
         alignItems="center"
         justifyContent={"center"}
       >
-        <img src={"./public/polygon.png"} width={200} />
+        <img src={"/polygon.png"} width={200} />
         {userAddress === ""
           ? renderNotConnectedContainer()
           : renderConnectedContainer()}
