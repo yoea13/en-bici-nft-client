@@ -88,9 +88,9 @@ function App() {
   async function safeMint() {
     setminted(true);
     // Mumbai
-    const enbiciadd = "0x53182F689C5E548cB28172ccd86d2576d3406875";
+    // const enbiciadd = "0x53182F689C5E548cB28172ccd86d2576d3406875";
     // Matic
-    // const enbiciadd = "0x801B1ec0e3be57Ab132B33CB8be07137734A9C20";
+    const enbiciadd = "0x801B1ec0e3be57Ab132B33CB8be07137734A9C20";
     const abi = ["function safeMint(address to, string memory uri) public"];
     // const config = {
     //   apiKey: "deJjPb_Az5VW7mrhJVRaK1NxiP1oZJY4",
