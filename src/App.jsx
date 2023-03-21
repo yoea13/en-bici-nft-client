@@ -15,6 +15,7 @@ import { ethers } from "ethers";
 
 function App() {
   const [userAddress, setUserAddress] = useState("");
+  const [minted, setminted] = useState("");
 
   // ---------------------------------------------
   const connectWallet = async () => {
@@ -73,13 +74,23 @@ function App() {
     </Button>
   );
 
+  const renderMinted = () => (
+    <a href={"https://opensea.io/es/" + userAddress} target="blanc_">
+      <div valign="center">
+        👁️👁️ 👉🏻
+        <img src={"/opensea.png"} width={200} />
+      </div>
+    </a>
+  );
+
   // ---------------------------------------------
 
   async function safeMint() {
+    setminted(true);
     // Mumbai
-    // const enbiciadd = "0x53182F689C5E548cB28172ccd86d2576d3406875";
+    const enbiciadd = "0x53182F689C5E548cB28172ccd86d2576d3406875";
     // Matic
-    const enbiciadd = "0x801B1ec0e3be57Ab132B33CB8be07137734A9C20";
+    // const enbiciadd = "0x801B1ec0e3be57Ab132B33CB8be07137734A9C20";
     const abi = ["function safeMint(address to, string memory uri) public"];
     // const config = {
     //   apiKey: "deJjPb_Az5VW7mrhJVRaK1NxiP1oZJY4",
@@ -97,6 +108,7 @@ function App() {
       signer.getAddress(),
       "ipfs://Qmet3yADzuJq1boqi6Tb4TaFs21ehxUZyKziRL6Sj8KxF9"
     );
+    setminted(true);
 
     console.log("NFT Minted!");
   }
@@ -132,10 +144,10 @@ function App() {
         alignItems="center"
         justifyContent={"center"}
       >
-        <img src={"/polygon.png"} width={200} />
-        {userAddress === ""
-          ? renderNotConnectedContainer()
-          : renderConnectedContainer()}
+        {!minted ? <img src={"/polygon.png"} width={200} /> : <Text> </Text>}
+        {userAddress === "" ? renderNotConnectedContainer() : ""}
+        {(userAddress !== "") & !minted ? renderConnectedContainer() : ""}
+        {(userAddress !== "") & minted ? renderMinted() : ""}
       </Flex>
     </Box>
   );
